@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { useEffect, useState } from 'react';
 
@@ -11,6 +12,7 @@ const projectCardCss = {
   }),
   image: {
     container: css({
+      position: 'relative',
       flexBasis: '60%',
     }),
     self: css({ width: '100%', border: '2px solid black' }),
@@ -28,6 +30,28 @@ const projectCardCss = {
     }),
     subtitle: css({ color: theme.grey[700] }),
   },
+  link: {
+    container: css({
+      position: 'absolute',
+      top: '10px',
+      right: '10px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '10px',
+    }),
+    self: css({
+      width: '30px',
+      height: '30px',
+      borderRadius: '50%',
+      backgroundColor: 'black',
+      opacity: '0.5',
+      transition: 'all 0.2s ease',
+
+      '&:hover': {
+        opacity: 0.8,
+      },
+    }),
+  },
 };
 
 const ProjectCard = ({
@@ -36,11 +60,33 @@ const ProjectCard = ({
   subtitle,
   description,
   direction,
+  link,
+  github,
 }) => {
   return (
     <div css={projectCardCss.self} style={{ flexDirection: direction }}>
       <div css={projectCardCss.image.container}>
         <img css={projectCardCss.image.self} src={imageSource} />
+        <div css={projectCardCss.link.container}>
+          {link && (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={link}
+              css={projectCardCss.link.self}
+              style={{ backgroundImage: 'url(/linkIcon.svg)' }}
+            />
+          )}
+          {github && (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={github}
+              css={projectCardCss.link.self}
+              style={{ backgroundImage: 'url(/gitHubIcon.svg)' }}
+            />
+          )}
+        </div>
       </div>
       <div css={projectCardCss.info.self}>
         <div css={projectCardCss.info.header}>
@@ -57,6 +103,7 @@ const projectsListCss = {
   self: {
     padding: '20px',
     display: 'flex',
+    flexDirection: 'column',
     gap: '40px',
   },
 };
@@ -82,6 +129,8 @@ const ProjectsList = ({ windowSize, projects = [] }) => {
           subtitle={project.subtitle}
           description={project.description}
           imageSource={project.imageSource}
+          link={project.link}
+          github={project.github}
         />
       ))}
     </div>

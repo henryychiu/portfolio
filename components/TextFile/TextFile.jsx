@@ -1,7 +1,9 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
 const textFileCss = {
   self: css({
+    boxSizing: 'border-box',
     background: 'white',
     height: '100%',
     width: '100%',

@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
 const titleCss = css({ fontWeight: 'bold', fontSize: '14px' });

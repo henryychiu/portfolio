@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
 import { stripedBackground, theme } from '../../../styles/styles';

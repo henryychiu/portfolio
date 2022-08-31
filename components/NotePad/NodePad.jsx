@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -78,9 +79,7 @@ const NotePad = ({ defaultPhrase = '', opened }) => {
 
   useEffect(() => {
     if (typingInitated) {
-      if (defaultPhrase.slice(pos, pos + 1) === '\n') {
-        setTimeout(() => type(), TIMING.DELAY / 2);
-      } else if (defaultPhrase.slice(pos, pos + 1) === '\u00a0') {
+      if (defaultPhrase.slice(pos, pos + 1) === '\u00a0') {
         setTimeout(() => type(), TIMING.DELAY);
       } else {
         setTimeout(() => type(), TIMING.SPEED);

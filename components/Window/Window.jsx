@@ -1,10 +1,11 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useTopZIndexContext } from '../../context/TopZIndexContext';
+import useBrowserWindowSize from '../../hooks/useBrowserWindowSize';
 import { MENU_BAR_HEIGHT, stripedBackground, theme } from '../../styles/styles';
 import Title from '../Title';
-import useBrowserWindowSize from './hooks/useBrowserWindowSize';
 
 const windowCss = {
   self: css({
@@ -115,7 +116,7 @@ let offset = { x: 0, y: 0 };
 const DEFAULT_TRANSITION = 'ease 0.3s all, 0s ease z-index';
 
 const WINDOW = {
-  MIN_WIDTH: 160,
+  MIN_WIDTH: 200,
   MIN_HEIGHT: 160,
 };
 
@@ -134,6 +135,7 @@ const Window = ({
 }) => {
   const [size, setSize] = useState({ width: 0, height: 0 });
   const [pos, setPos] = useState(defaultPos);
+  const [initalSize, setInitalSize] = useState(defaultSize);
   const [prevSize, setPrevSize] = useState(defaultSize);
   const [prevPos, setPrevPos] = useState(defaultPos);
   const [opacity, setOpacity] = useState(0);
@@ -148,7 +150,7 @@ const Window = ({
   useEffect(() => {
     if (opened) {
       setOpacity(1);
-      setSize(prevSize);
+      setSize(initalSize);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [opened]);
@@ -159,7 +161,7 @@ const Window = ({
   const handleClose = useCallback(
     (e) => {
       e.stopPropagation();
-      setPrevSize({ width: size.width, height: size.height });
+      setInitalSize({ width: size.width, height: size.height });
       setSize({ width: 0, height: 0 });
       setTimeout(() => {
         setOpacity(0);
@@ -290,13 +292,13 @@ const Window = ({
   /**
    * Handler for rendering elipsis
    */
-  const renderTitle = () => {
+  const renderTitle = useMemo(() => {
     if (size.width === 0) return '...';
     const charactersLeft = Math.round(size.width / 8.5) - 9;
     return charactersLeft < label.length
       ? label.slice(0, charactersLeft - 3) + '...'
       : label;
-  };
+  }, [label, size.width]);
 
   return (
     <div
@@ -333,7 +335,7 @@ const Window = ({
           css={windowCss.title}
           style={!isAtTop ? { color: theme.grey[700] } : {}}
         >
-          {renderTitle()}
+          {renderTitle}
         </Title>
         {isAtTop ? (
           <button

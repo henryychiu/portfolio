@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
@@ -11,7 +12,7 @@ const iconCss = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    margin: '20px',
+    padding: '20px',
     display: 'flex',
   }),
   thumbnail: {

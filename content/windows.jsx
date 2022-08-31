@@ -10,10 +10,10 @@ import { PROJECTS } from './projects';
 export const ABOUT_THIS_COMPUTER_WINDOW = {
   id: 'about-this-computer',
   size: {
-    width: 460,
+    width: 600,
     height: 300,
   },
-  pos: { x: -230, y: 150 },
+  pos: { x: -300, y: 150 },
   label: 'About This Computer',
   content: <AboutThisComputer />,
 };
@@ -28,7 +28,52 @@ export const DISK_WINDOWS = [
     pos: { x: -280, y: 110 },
     label: 'About Me.txt',
     iconSource: '/page.svg',
-    content: <TextFile content={''} />,
+    content: (
+      <TextFile
+        content={
+          <>
+            <p>
+              My name is Henry Chiu and I&apos;m a 3rd year studying Computer
+              Science at UC Berkeley.
+            </p>
+            <p>
+              I specialize in Web Development, with 1+ years of professional
+              experience, working at companies such as{' '}
+              <b style={{ color: '#cc0000' }}>Tesla</b> and{' '}
+              <b style={{ color: '#0b1721' }}>Verkada</b>.
+            </p>
+            <p>
+              My goal is simple: to surround myself with smart, energetic,
+              creative people who challenge me and make me better at what I do.
+            </p>
+            <br />
+            <p>
+              Email me at{' '}
+              <a href="mailto: henrychiu@berkeley.edu">
+                henrychiu@berkeley.edu
+              </a>
+            </p>
+            <p>
+              Or find me at{' '}
+              <a
+                href="https://www.linkedin.com/in/henryychiu/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                linkedin
+              </a>{' '}
+              <a
+                href="https://github.com/henryychiu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                github
+              </a>
+            </p>
+          </>
+        }
+      />
+    ),
   },
   {
     id: 'me-photo',
@@ -39,37 +84,22 @@ export const DISK_WINDOWS = [
     content: <Photo imageSource="/me.jpg" />,
     openOnStartUpOrder: 1,
   },
-  {
-    id: 'note-pad2',
-    size: {
-      width: 370,
-      height: 300,
-    },
-    pos: { x: 50, y: 120 },
-    label: 'Note Pad',
-    iconSource: '/notePad.svg',
-    content: (
-      <NotePad
-        defaultPhrase={`Hello!\n\nI'm Henry Chiu\u00a0and this is a portfolio of my coding work.\n\u00a0\nClick around to explore :D`}
-      />
-    ),
-  },
 ];
 
 export const DESKTOP_WINDOWS = [
   {
-    id: 'henryychiu',
+    id: 'About Me',
     size: { width: 560, height: 340 },
-    pos: { x: -200, y: 180 },
-    label: 'henryychiu',
+    pos: { x: -200, y: 140 },
+    label: 'About Me',
     iconSource: '/disk.svg',
     content: <Finder icons={DISK_WINDOWS} />,
   },
   {
     id: 'projects',
-    size: { width: 800, height: 440 },
+    size: { width: 900, height: 440 },
     minSize: { width: 300, height: 300 },
-    pos: { x: -420, y: 80 },
+    pos: { x: -450, y: 80 },
     label: 'Projects',
     iconSource: 'internetExplorer.svg',
     content: (
@@ -90,9 +120,23 @@ export const DESKTOP_WINDOWS = [
     iconSource: '/notePad.svg',
     content: (
       <NotePad
-        defaultPhrase={`Hello!\n\nI'm Henry Chiu\u00a0and this is a portfolio of my coding work.\n\u00a0\nClick around to explore :D`}
+        defaultPhrase={`Hello!\n\u00a0\nI'm Henry Chiu\u00a0and this is a portfolio of my coding work.\n\u00a0\u00a0\nClick around to explore :D`}
       />
     ),
     openOnStartUpOrder: 2,
+  },
+  {
+    id: 'resume',
+    size: { width: 710, height: 400 },
+    pos: { x: -410, y: 25 },
+    label: 'Resume.pdf',
+    iconSource: '/Henry_Chiu_Resume.jpg',
+    content: (
+      <Photo
+        imageSource="/Henry_Chiu_Resume.jpg"
+        downloadSource="/Henry_Chiu_Resume.pdf"
+        isPdf
+      />
+    ),
   },
 ];

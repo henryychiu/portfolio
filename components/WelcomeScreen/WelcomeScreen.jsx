@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { useEffect, useState } from 'react';
 
@@ -41,6 +42,7 @@ const welcomeScreenCss = {
     padding: '40px',
     display: 'grid',
     gridTemplateColumns: '1fr 2fr 1fr',
+    gap: '10px',
     alignItems: 'center',
   }),
   icon: css({ height: '60px', width: '60px' }),
@@ -98,7 +100,7 @@ const WelcomeScreen = ({ loadingDone }) => {
         <div css={welcomeScreenCss.boxInner}>
           <img alt="mac" src="/mac.svg" css={welcomeScreenCss.icon} />
           <div css={welcomeScreenCss.centerContent}>
-            <div>Starting up...</div>
+            <div>Starting...</div>
             <div css={welcomeScreenCss.loadingBar.container}>
               <div
                 css={welcomeScreenCss.loadingBar.self}
