@@ -19,6 +19,9 @@ const mobileCss = {
     textAlign: 'center',
     fontSize: '12px',
   }),
+  link: css({
+    color: 'black',
+  }),
 };
 
 const Mobile = () => {
@@ -41,10 +44,12 @@ const Mobile = () => {
       </p>
       <br />
       <p>
-        <a href="mailto: henrychiu@berkeley.edu">henrychiu@berkeley.edu</a>
+        <a href="mailto: henrychiu@berkeley.edu" css={mobileCss.link}>
+          henrychiu@berkeley.edu
+        </a>
       </p>
       <p>
-        <a href="/Henry_Chiu_Resume.pdf" download style={{ color: 'black' }}>
+        <a href="/Henry_Chiu_Resume.pdf" download css={mobileCss.link}>
           resume
         </a>
       </p>
@@ -53,6 +58,7 @@ const Mobile = () => {
           href="https://www.linkedin.com/in/henryychiu/"
           target="_blank"
           rel="noopener noreferrer"
+          css={mobileCss.link}
         >
           linkedin
         </a>
@@ -62,6 +68,7 @@ const Mobile = () => {
           href="https://github.com/henryychiu"
           target="_blank"
           rel="noopener noreferrer"
+          css={mobileCss.link}
         >
           github
         </a>
