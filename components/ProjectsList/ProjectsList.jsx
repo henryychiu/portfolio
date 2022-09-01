@@ -83,7 +83,7 @@ const ProjectCard = ({
               rel="noopener noreferrer"
               href={github}
               css={projectCardCss.link.self}
-              style={{ backgroundImage: 'url(/gitHubIcon.svg)' }}
+              style={{ backgroundImage: 'url(/githubIcon.svg)' }}
             />
           )}
         </div>
