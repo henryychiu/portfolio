@@ -6,7 +6,6 @@ const photoCss = {
     height: '100%',
     width: '100%',
     background: 'white',
-    overflowY: 'scroll',
   }),
   downloadButton: css({
     position: 'absolute',
@@ -30,7 +29,11 @@ const Photo = ({ imageSource, isPdf, downloadSource }) => {
   return (
     <div
       css={photoCss.container}
-      style={isPdf ? {} : { display: 'flex', justifyContent: 'center' }}
+      style={
+        isPdf
+          ? { overflowY: 'scroll' }
+          : { display: 'flex', justifyContent: 'center' }
+      }
     >
       <img css={{ objectFit: 'cover', width: '100%' }} src={imageSource} />
       {downloadSource && (
