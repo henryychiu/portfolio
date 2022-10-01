@@ -148,12 +148,11 @@ const Window = ({
    * Open window
    */
   useEffect(() => {
-    if (opened) {
+    if (opened && size.width === 0 && size.height === 0) {
       setOpacity(1);
       setSize(initalSize);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [opened]);
+  }, [initalSize, opened, size.width, size.height]);
 
   /**
    * Handler for close button

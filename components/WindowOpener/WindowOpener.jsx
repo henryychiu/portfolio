@@ -99,21 +99,8 @@ const WindowOpener = ({
   const [windowDOM, setWindowDOM] = useState(null);
   const [windowOpened, setWindowOpened] = useState(false);
   const [windowZIndex, setWindowZIndex] = useState(openOnStartUpOrder || 0);
+  const [openOnStartup, setOpenOnStartup] = useState(!!openOnStartUpOrder);
   const { getNewTopZIndex } = useTopZIndexContext();
-
-  useEffect(() => {
-    setWindowDOM(document.getElementById('windowSpawn'));
-  }, []);
-
-  useEffect(() => {
-    if (!loading && openOnStartUpOrder) {
-      setTimeout(() => {
-        setWindowOpened(true);
-        updateWindowZIndex();
-      }, openOnStartUpOrder * 400);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading, openOnStartUpOrder]);
 
   const updateWindowZIndex = useCallback(() => {
     const newZIndex = getNewTopZIndex(windowZIndex);
@@ -132,6 +119,20 @@ const WindowOpener = ({
   const handleWindowClose = useCallback(() => {
     setWindowOpened(false);
   }, []);
+
+  useEffect(() => {
+    setWindowDOM(document.getElementById('windowSpawn'));
+  }, []);
+
+  useEffect(() => {
+    if (!loading && openOnStartup) {
+      setTimeout(() => {
+        setWindowOpened(true);
+        updateWindowZIndex();
+        setOpenOnStartup(false);
+      }, openOnStartUpOrder * 400);
+    }
+  }, [loading, openOnStartUpOrder, updateWindowZIndex, openOnStartup]);
 
   return (
     <>

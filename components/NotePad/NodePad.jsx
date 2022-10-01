@@ -62,20 +62,19 @@ const TIMING = {
 
 const NotePad = ({ defaultPhrase = '', opened }) => {
   const [pos, setPos] = useState(0);
-  const [typingInitated, settypingInitated] = useState(false);
+  const [typingInitated, setTypingInitated] = useState(false);
 
   useEffect(() => {
-    if (opened) {
+    if (opened && !typingInitated) {
       setTimeout(() => {
-        settypingInitated(true);
+        setTypingInitated(true);
         type();
       }, TIMING.INITIAL);
-    } else {
+    } else if (!opened) {
       setPos(0);
-      settypingInitated(false);
+      setTypingInitated(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [opened]);
+  }, [opened, type, typingInitated]);
 
   useEffect(() => {
     if (typingInitated) {
