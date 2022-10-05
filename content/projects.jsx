@@ -1,5 +1,23 @@
 export const PROJECTS = [
   {
+    id: 'minecraft',
+    title: 'Minecraft',
+    subtitle: '2022',
+    description: (
+      <>
+        <p>
+          A Minecraft clone with features including a controllable first-person
+          player, block building and destorying, item selection, and world
+          saving capabilities.
+        </p>
+        <p>Built with JavaScript, React, Three.js.</p>
+      </>
+    ),
+    imageSource: '/minecraft.gif',
+    link: 'https://minecraft-tan.vercel.app/',
+    github: 'https://github.com/henryychiu/minecraft',
+  },
+  {
     id: 'desktop-simulator',
     title: 'Desktop Simulator',
     subtitle: '2022',

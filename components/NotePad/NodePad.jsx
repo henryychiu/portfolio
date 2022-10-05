@@ -65,11 +65,13 @@ const NotePad = ({ defaultPhrase = '', opened }) => {
   const [typingInitated, setTypingInitated] = useState(false);
 
   useEffect(() => {
+    // if opened and typing hasn't started
     if (opened && !typingInitated) {
       setTimeout(() => {
         setTypingInitated(true);
         type();
       }, TIMING.INITIAL);
+      // if closed
     } else if (!opened) {
       setPos(0);
       setTypingInitated(false);
