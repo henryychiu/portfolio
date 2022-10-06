@@ -160,11 +160,11 @@ const Window = ({
   const handleClose = useCallback(
     (e) => {
       e.stopPropagation();
+      onClose();
       setInitalSize({ width: size.width, height: size.height });
       setSize({ width: 0, height: 0 });
       setTimeout(() => {
         setOpacity(0);
-        onClose();
       }, 280);
     },
     [onClose, size.width, size.height]
