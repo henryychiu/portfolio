@@ -13,12 +13,12 @@ const useFormattedClock = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setClock(new Date());
+      setClock(shortTime.format(new Date()));
     }, 1000);
     return () => clearInterval(interval);
   }, []);
 
-  return [shortTime.format(clock)];
+  return [clock];
 };
 
 export default useFormattedClock;

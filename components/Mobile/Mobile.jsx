@@ -29,18 +29,14 @@ const Mobile = () => {
     <div css={mobileCss.self}>
       <Title css={mobileCss.header}>Henry Chiu</Title>
       <p>
-        My name is Henry Chiu and I&apos;m a 3rd year studying Computer Science
+        My name is Henry Chiu and I&apos;m a 4th year studying Computer Science
         at UC Berkeley.
       </p>
       <p>
-        I specialize in Web Development, with 1+ years of professional
-        experience, working at companies such as{' '}
-        <b style={{ color: '#cc0000' }}>Tesla</b> and{' '}
-        <b style={{ color: '#0b1721' }}>Verkada</b>.
-      </p>
-      <p>
-        My goal is simple: to surround myself with smart, energetic, creative
-        people who challenge me and make me better at what I do.
+        I&apos;m passionate about full-stack development, and have worked at
+        companies such as <b style={{ color: '#0b1721' }}>Plaid</b>,{' '}
+        <b style={{ color: '#0b1721' }}>Verkada</b>, and{' '}
+        <b style={{ color: '#0b1721' }}>Tesla</b>.
       </p>
       <br />
       <p>
