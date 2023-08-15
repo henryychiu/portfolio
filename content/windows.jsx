@@ -37,8 +37,9 @@ export const DISK_WINDOWS = [
               Science at UC Berkeley.
             </p>
             <p>
-              I&apos;m passionate about full-stack development, and have worked
-              at companies such as <b style={{ color: '#0b1721' }}>Plaid</b>,{' '}
+              I&apos;m passionate about full-stack development, and I&apos;ve
+              worked at companies such as{' '}
+              <b style={{ color: '#0b1721' }}>Plaid</b>,{' '}
               <b style={{ color: '#0b1721' }}>Verkada</b>, and{' '}
               <b style={{ color: '#0b1721' }}>Tesla</b>.
             </p>
